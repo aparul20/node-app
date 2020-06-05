@@ -6,7 +6,7 @@ describe('Status and content', function() {
     describe ('Main page', function() {
         it('content', function(done) {
             request('http://localhost:3000/' , function(error, response, body) {
-                expect(body).to.equal('hello world - app1');
+                expect(body).to.equal('hello world - app');
                 done();
             });
         });
@@ -20,6 +20,6 @@ var app = require('../index.js');
 describe('GETFUNCTION /', function() {
  it('respond with hello world', function(done) {
  //navigate to root and check the the response is "hello world"
- request(app).get('/').expect('hello world - app1', done);
+ request(app).get('/').expect('hello world - app', done);
  });
 });
