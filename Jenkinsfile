@@ -25,7 +25,7 @@ pipeline {
 	
 	stage('Create Docker Image') {
 	  steps {
-		bat 'docker build -t aparul20/node-app'
+		bat 'docker build -t aparul20/node-app .'
 		bat 'docker push mydocker2008/nodejs-helloworld-2:secondtry'
 	  }
 	}
