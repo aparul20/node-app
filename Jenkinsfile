@@ -14,7 +14,7 @@ pipeline {
 		
 		steps {
 			withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'NUSER', passwordVariable: 'NPASS')]) {	
-					bat 'echo %registryCredential_USR%'
+					bat 'docker login -u %registryCredential_USR% -p %registryCredential_PSW% docker.io'
 			}
 		}
 	}
