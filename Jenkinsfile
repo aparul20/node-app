@@ -10,7 +10,7 @@ pipeline {
   stages {
 	stage('Create Docker Image') {
 		steps {
-			withCredentials([usernamePassword(credentialsId: 'credUserName', usernameVariable: 'NUSER', passwordVariable: 'NPASS')]) {
+			withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'NUSER', passwordVariable: 'NPASS')]) {
 				bat 'echo PNEXUS_USERNAME=${NUSER} -PNEXUS_PASSWORD=${NPASS}'
 			}
 		}
