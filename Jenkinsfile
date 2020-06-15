@@ -26,15 +26,19 @@ pipeline {
 	  }
 	} 
 
-	stage('Create Docker Image') {
+	stage('Build Image') {
 		
 		steps {
 			withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'NUSER', passwordVariable: 'NPASS')]) {	
 				bat 'docker login -u mydocker2008 -p lum1n0us2008 docker.io'
 			}
 			
-			bat 'docker build -t mydocker2008/nodejs-helloworld-2:secondtry .'
-			bat 'docker push mydocker2008/nodejs-helloworld-2:secondtry'
+			script {
+				dockerImage = docker.build registry + ":$BUILD_NUMBER"
+			}
+			docker.withRegistry( '', registryCredential ) {
+				dockerImage.push()
+			}
 
 		}
 	}
