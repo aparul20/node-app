@@ -11,7 +11,8 @@ pipeline {
 	stage('Create Docker Image') {
 		steps {
 			withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'NUSER', passwordVariable: 'NPASS')]) {
-				bat 'docker login -u ${NUSER} -p ${NPASS} docker.io'
+				
+				bat 'docker login -u mydocker2008 -p lum1n0us2008 docker.io'
 			}
 		}
 	}
