@@ -11,7 +11,7 @@ pipeline {
 	stage('Create Docker Image') {
 		steps {
 			withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'NUSER', passwordVariable: 'NPASS')]) {
-				bat 'echo PNEXUS_USERNAME=${NUSER} -PNEXUS_PASSWORD=${NPASS}'
+				bat 'docker login -u ${NUSER} -p ${NPASS} docker.io'
 			}
 		}
 	}
