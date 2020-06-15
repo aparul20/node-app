@@ -14,7 +14,7 @@ pipeline {
 		
 		steps {
 			withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'NUSER', passwordVariable: 'NPASS')]) {	
-					bat 'echo ${NUSER} '
+					bat 'echo $registryCredential '
 			}
 		}
 	}
